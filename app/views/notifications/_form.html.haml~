@@ -11,7 +11,7 @@
     = f.text_area :description
   .field
     = f.label :category
-    = f.select :category, Notification::CATEGORY_TYPES
+    = f.select_tag :category, Notification::CATEGORY_TYPES
      
     
   .field
