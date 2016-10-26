@@ -9,6 +9,8 @@ end
 
 class Notification < ApplicationRecord
 has_one :order
+after_save :create_order_with_calculate_cost
+
 #add validates
 CATEGORY_TYPES = ["Awaria", "Uszkodzenie", "Usterka" ]
 #dont be blank description email
@@ -16,4 +18,17 @@ CATEGORY_TYPES = ["Awaria", "Uszkodzenie", "Usterka" ]
 	validates :description, presence: true, length: { minimum: 100 }
 #Category must be included from the list
 	validates :category,presence: true, inclusion: CATEGORY_TYPES
+	
+	
+	
+    private
+    
+		 def create_order_with_calculate_cost
+		 		Order.create(
+      	notification_id: self.id
+        )
+		   #  orderobject = Order.find(self.id)
+		    # orderobject.notification_id = self.id # self is the fruit
+		     #orderobject.save
+		 end
 end
