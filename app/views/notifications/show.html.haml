@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @notification.description
+%p
+  %b Category:
+  = @notification.category
+%p
+  %b Email:
+  = @notification.email
+
+= link_to 'Edit', edit_notification_path(@notification)
+\|
+= link_to 'Back', notifications_path
