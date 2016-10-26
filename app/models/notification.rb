@@ -8,6 +8,7 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class Notification < ApplicationRecord
+has_one :order
 #add validates
 CATEGORY_TYPES = ["Awaria", "Uszkodzenie", "Usterka" ]
 #dont be blank description email

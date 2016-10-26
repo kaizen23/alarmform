@@ -1,4 +1,5 @@
 class EmailValidator < ActiveModel::EachValidator
+#create email validator
   def validate_each(record, attribute, value)
     unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
       record.errors[attribute] << (options[:message] || "is not an email")
@@ -7,6 +8,7 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class Notification < ApplicationRecord
+has_on :order
 #add validates
 CATEGORY_TYPES = ["Awaria", "Uszkodzenie", "Usterka" ]
 #dont be blank description email
