@@ -2,8 +2,8 @@ class Notification < ApplicationRecord
 #add validates
 CATEGORY_TYPES = ["Awaria", "Uszkodzenie", "Usterka" ]
 #dont be blank description email
-	validates  :email, presence: true
-	validates_length_of :description, :minimum  => 100, :message => "less than %d if you don't mind"
+	validates  :email, presence: true, email: true
+	validates :description, presence: true, length: { minimum: 100 }
 #Category must be included from the list
 	validates :category, inclusion: CATEGORY_TYPES
 end
