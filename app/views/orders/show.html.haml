@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Cost:
+  = @order.cost
+%p
+  %b Lastdate:
+  = @order.lastdate
+%p
+  %b Notification:
+  = @order.notification
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

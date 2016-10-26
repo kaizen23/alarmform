@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cost: 1
+  lastdate: 2016-10-26 12:09:28
+  notification: one
+
+two:
+  cost: 1
+  lastdate: 2016-10-26 12:09:28
+  notification: two
