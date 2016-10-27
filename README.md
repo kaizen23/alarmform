@@ -1,24 +1,17 @@
-# README
+# ALARMFORM
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is used to create alerts.
+It was written in ruby. In the framework ruby on rails.
+Ruby Version 2.3.1p112. Himself Rails 5.0.0.1.
+To prepare the database, issue the command:
+*rake db: create
+Next
+*rake db: migrate
+and
+*rake db: setup
 
-Things you may want to cover:
+The main application is located at:
 
-* Ruby version
+http: // localhost: 3000 /
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A interface is called 'SecSys'
