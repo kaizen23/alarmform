@@ -11,7 +11,10 @@ class Notification < ApplicationRecord
 #one notification has one order
 has_one :order
 #after save create order with cost and time to realization order
-after_save :create_order_with_calculate_cost
+
+after_save :create_order_with_calculate_cost, unless: :call_unless_condition #use the condition 
+
+
 
 #add validates
 CATEGORY_TYPES = ["Awaria", "Uszkodzenie", "Usterka" ]
@@ -24,6 +27,10 @@ validates :category,presence: true, inclusion: CATEGORY_TYPES
 
 
 private
+		#conditions which checks notification_id .If exist dont create record to database
+		def call_unless_condition 
+			Order.where(notification_id: self.id).exists?  
+    end
     
 		def create_order_with_calculate_cost
 			#function check_time check between witch hours customer save request

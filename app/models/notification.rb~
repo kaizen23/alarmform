@@ -11,7 +11,10 @@ class Notification < ApplicationRecord
 #one notification has one order
 has_one :order
 #after save create order with cost and time to realization order
-after_save :create_order_with_calculate_cost
+
+after_save :create_order_with_calculate_cost, unless: :call_unless_condition #use the condition 
+
+
 
 #add validates
 CATEGORY_TYPES = ["Awaria", "Uszkodzenie", "Usterka" ]
@@ -24,6 +27,10 @@ validates :category,presence: true, inclusion: CATEGORY_TYPES
 
 
 private
+
+		def call_unless_condition
+			Order.where(notification_id: self.id).exists?  
+    end
     
 		def create_order_with_calculate_cost
 			#function check_time check between witch hours customer save request
@@ -57,7 +64,7 @@ private
 					#if time notifications is between '17:00:00' AND '09:00:00 cost is 100
 					cost: 10,
 					#time to realization alarm is four hours
-					lastdate: (3.business_days.after(self.created_at))
+					lastdate: (1.business_days.after(self.created_at))
 					)
 			when "Usterka"
 			Order.create(
