@@ -28,12 +28,14 @@ private
 		def create_order_with_calculate_cost
 			#function check_time check between witch hours customer save request
 			def check_time
-				if Notification.where("(TIME(created_at) NOT BETWEEN '09:00:00' AND '15:00:00') AND id = ?", self.id ).exists?
+				if Notification.where("(TIME(created_at) NOT BETWEEN '09:00:00' AND '18:00:00') AND id = ?", self.id ).exists?
 					return true
 				end
 			end
+			case category # a_variable is the variable we want to compare
+			when "Awaria"
 			#checking depending on and save orders to database
-			if category == "Awaria" && check_time
+			if check_time
 				Order.create(
 					notification_id: self.id,
 					#if time notifications is between '17:00:00' AND '09:00:00 cost is 100
@@ -41,12 +43,29 @@ private
 					#time to realization alarm is four hours
 					lastdate: (self.created_at + 14400)
 					)
-			elsif category == "Awaria"
+			else
 				Order.create(
 					notification_id: self.id,
 					#if time notifications is between '09:00:00' AND '17:00:00 cost is 50
 					cost: 50,
 					lastdate: (self.created_at + 14400)
+					)
+			end
+			when "Uszkodzenie"
+			Order.create(
+					notification_id: self.id,
+					#if time notifications is between '17:00:00' AND '09:00:00 cost is 100
+					cost: 10,
+					#time to realization alarm is four hours
+					lastdate: (1.business_days.after(self.created_at))
+					)
+			when "Usterka"
+			Order.create(
+					notification_id: self.id,
+					#if time notifications is between '17:00:00' AND '09:00:00 cost is 100
+					cost: 1,
+					#time to realization alarm is four hours
+					lastdate: (3.business_days.after(self.created_at))
 					)
 			end
 		end
