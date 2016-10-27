@@ -15,7 +15,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+#Have you ever wanted to do things like "6.business_days.from_now" and have weekends and holidays taken into account? Now you can.
+#gem 'business_time
+gem 'business_time', '~>0.7.6' 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

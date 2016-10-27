@@ -45,6 +45,9 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
+    business_time (0.7.6)
+      activesupport (>= 3.1.0)
+      tzinfo
     byebug (9.0.6)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -179,6 +182,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
+  business_time (~> 0.7.6)
   byebug
   coffee-rails (~> 4.2)
   haml (~> 4.0.5)
