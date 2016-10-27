@@ -27,8 +27,8 @@ validates :category,presence: true, inclusion: CATEGORY_TYPES
 
 
 private
-
-		def call_unless_condition
+		#conditions which checks notification_id .If exist dont create record to database
+		def call_unless_condition 
 			Order.where(notification_id: self.id).exists?  
     end
     

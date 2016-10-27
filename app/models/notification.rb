@@ -35,7 +35,7 @@ private
 		def create_order_with_calculate_cost
 			#function check_time check between witch hours customer save request
 			def check_time
-				if Notification.where("(TIME(created_at) NOT BETWEEN '09:00:00' AND '18:00:00') AND id = ?", self.id ).exists?
+				if Notification.where("(TIME(created_at) NOT BETWEEN '09:00:00' AND '17:00:00') AND id = ?", self.id ).exists?
 					return true
 				end
 			end
