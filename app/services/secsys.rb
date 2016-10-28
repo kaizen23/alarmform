@@ -1,6 +1,6 @@
 class Secsys 
   #x is number of quantity record you want download
-  def display(x: '1')
+  def display(x= '1', hash = {})
   @x = x 
   #fetch date
   sql = "SELECT * FROM notifications WHERE status = 1 ORDER BY created_at ASC LIMIT #{@x} "
