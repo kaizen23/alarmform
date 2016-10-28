@@ -7,15 +7,15 @@
           %li= msg
 
   .field
-    = f.label :description
+    = f.label :Opis
     = f.text_area :description
   .field
-    = f.label :category
+    = f.label :Kategoria
     = f.select :category, Notification::CATEGORY_TYPES
      
     
   .field
-    = f.label :email
+    = f.label :"Adres email"
     = f.text_field :email
   .actions
-    = f.submit 'Save'
+    = f.submit 'Wyslij'
