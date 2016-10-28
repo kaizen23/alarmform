@@ -20,4 +20,4 @@ You have to issue the command to prepare a database:
 The main application' s adress is:
 http://localhost:3000/
 
-Interface is called 'SecSys
+Interface is called 'SecSys'
