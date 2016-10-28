@@ -9,7 +9,7 @@ class Secsys
     puts 'Ruff! Ruff!'  
   end  
   
-  def date(x: 2)
+  def date(x: 1)
   @x = x 
   sql = "SELECT * from notifications limit #{@x} "
 	result = ActiveRecord::Base.connection.execute(sql)
