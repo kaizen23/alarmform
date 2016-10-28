@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  
-.depot_form 
+.alarm_form 
   fieldset 
     background: #efe
     legend 
