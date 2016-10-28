@@ -3,7 +3,7 @@
 This application is used to create alerts.
 It is written in Ruby, in the framework ruby on rails.
 
-Ruby Version 2.3.1p112. Himself Rails 5.0.0.1.
+Ruby Version 2.3.1p112 and Rails 5.0.0.1.
 
 You have to issue the command to prepare a database:
 
