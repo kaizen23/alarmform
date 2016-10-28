@@ -1,22 +1,12 @@
 class Secsys 
-  def initialize(breed, name)  
-    # Instance variables  
-    @breed = breed  
-    @name = name  
-  end  
-  
-  def bark  
-    puts 'Ruff! Ruff!'  
-  end  
-  
-  def date(x: 2)
+ 
+  def display(x: '1')
   @x = x 
-  sql = "SELECT * from notifications limit #{@x} "
+  sql = "SELECT * FROM notifications WHERE status = 1 ORDER BY created_at ASC LIMIT #{@x} "
+  update_sql = "UPDATE notifications SET status = 0 WHERE status = 1 ORDER BY created_at ASC LIMIT #{@x} "
 	result = ActiveRecord::Base.connection.execute(sql)
-	result.to_a
+	execute_update = ActiveRecord::Base.connection.execute(update_sql)
+	return result
   end
   
-  def display  
-    puts "I am of #{@breed} breed and my name is #{@name}"  
-  end  
 end 
